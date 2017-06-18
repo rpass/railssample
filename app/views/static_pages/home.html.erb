@@ -1,2 +1,18 @@
 <h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div>
+	<h2>Welcome to my RoR static pages!</h2>
+	<p><i>Don't panic!</i></p>
+	<p>There's not much happening here!</p>
+	<p><label for="the-button">Just don't click this button</label> <button id='the-button' onclick="destroyTheWorld()">-_-</button></p>
+</div>
+<script type="text/javascript">
+	let count = 0;
+	let destroyTheWorld = function(){
+		count++;
+		if(count > 3){
+			alert("destruction of the world commencing");
+		} else {
+			console.log("shit... they are pushing the button");
+		}
+	}
+</script>
