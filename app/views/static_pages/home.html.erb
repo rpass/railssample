@@ -7,8 +7,8 @@
 	<p><label for="the-button">Just don't click this button</label> <button id='the-button' onclick="destroyTheWorld()">-_-</button></p>
 </div>
 <script type="text/javascript">
-	let count = 0;
-	let destroyTheWorld = function(){
+	var count = 0;
+	var destroyTheWorld = function(){
 		console.log("you chose to destroy the world, nice one.")
 		count++;
 		if(count > 3){
