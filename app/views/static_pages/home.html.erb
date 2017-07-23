@@ -1,20 +1,27 @@
 <% provide(:title, "Home") %>
 <h1>StaticPages#home</h1>
-<div>
-	<h2>Welcome to my RoR static pages!</h2>
-	<p><i>Don't panic!</i></p>
-	<p>There's not much happening here!</p>
-	<p><label for="the-button">Just don't click this button</label> <button id='the-button' onclick="destroyTheWorld()">-_-</button></p>
+<div class="center jumbotron">
+  <h1>Welcome to the Sample App</h1>
+  <h2> DON'T FALL FOR IT </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
+
+<p><label for="the-button">Just don't click this cat!</label>
+  <%=  image_tag("kitten.jpg", alt: "Rails logo", id: "the-cat", onclick: "destroyTheWorld()") %>
+</p>
 <script type="text/javascript">
-	let count = 0;
-	let destroyTheWorld = function(){
-		console.log("you chose to destroy the world, nice one.")
-		count++;
-		if(count > 3){
-			alert("destruction of the world commencing");
-		} else {
-			console.log("shit... they are pushing the button");
-		}
-	}
+    var count = 0;
+    var destroyTheWorld = function () {
+        console.log("you chose to destroy the world, nice one.")
+        count++;
+        if (count > 3) {
+            alert("destruction of the world commencing");
+        } else {
+            console.log("shit... they are pushing the button");
+        }
+    }
 </script>
