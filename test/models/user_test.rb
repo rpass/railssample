@@ -74,4 +74,12 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     refute duplicate_user.valid?
   end
+
+  test "user before_save callback changes email to lowercase before persisting" do
+    uppercase_email = "ROB@gmail.com"
+    @user.email = uppercase_email
+    @user.save
+    saved_email = User.find_by(name: @user.name).email
+    assert_equal saved_email, uppercase_email.downcase
+  end
 end
