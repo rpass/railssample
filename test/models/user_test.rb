@@ -79,7 +79,7 @@ class UserTest < ActiveSupport::TestCase
     uppercase_email = "ROB@gmail.com"
     @user.email = uppercase_email
     @user.save
-    saved_email = User.find_by(name: @user.name).email
-    assert_equal saved_email, uppercase_email.downcase
+    @user.reload
+    assert_equal @user.email, uppercase_email.downcase
   end
 end
