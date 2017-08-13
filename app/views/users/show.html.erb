@@ -1,6 +1,16 @@
-<%= @user.name %>, <%= @user.email %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
 <p> account oppened on <i><%= @user.created_at %></i>
   <br>
-last online on <i><%= @user.created_at %></i></p>
+  last online on <i><%= @user.created_at %></i></p>
 
 <p>Today is <i><%= Time.now %></i></p>
