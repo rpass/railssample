@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       #   handle a successful save
     else
       # render the new view
-      render 'new'
+      render 'users/new'
     end
   end
 
