@@ -13,4 +13,20 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     assert_select 'div#error_explanation'
   end
+
+  test "#create creates a user if the form is valid" do
+    get signup_path
+
+    assert_difference 'User.count' do
+      post users_path, params: { user: { name: "example",
+                                         email: "example@example.com",
+                                         password: 'Asdf;lkj',
+                                         password_confirmation: 'Asdf;lkj' } }
+    end
+
+    follow_redirect!
+    assert_template 'users/show'
+    assert_select 'img.gravatar'
+    refute flash.empty?
+  end
 end
