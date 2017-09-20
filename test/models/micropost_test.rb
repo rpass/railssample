@@ -3,10 +3,7 @@ require 'test_helper'
 class MicropostTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @micropost = Micropost.new({
-                                 user: @user,
-                                 content: "Lorem ipsum"
-                               })
+    @micropost = @user.microposts.build(content: "lorem ipsum")
   end
 
   test "micropost should be valid" do
