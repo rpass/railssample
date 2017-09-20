@@ -26,10 +26,10 @@ class User < ApplicationRecord
   end
 
   def authenticated?(attribute, token)
-    if attribute == 'remember'
+    if attribute == :remember
       return false if remember_digest.nil?
       BCrypt::Password.new(remember_digest).is_password?(token)
-    elsif attribute == 'activation'
+    elsif attribute == :activation
       return false if activation_digest.nil?
       BCrypt::Password.new(activation_digest).is_password?(token)
     end
@@ -45,6 +45,14 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+  end
+
+  def activate
+    update_columns(activated: true, activated_at: Time.zone.now)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
   end
 
   private
