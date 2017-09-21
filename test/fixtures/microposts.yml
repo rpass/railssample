@@ -1,9 +1,15 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+tau_manifesto:
+  content: "checkout the manifesto!"
+  created_at: <%= 5.minutes.ago %>
 
-one:
-  content: MyText
-  user: one
+orange:
+  content: "I just ate an orange!"
+  created_at: <%= 3.years.ago %>
 
-two:
-  content: MyText
-  user: two
+cat:
+  content: "Cats are the worst"
+  created_at: <%= 10.months.ago %>
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
