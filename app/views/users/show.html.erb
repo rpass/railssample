@@ -7,6 +7,15 @@
       </h1>
     </section>
   </aside>
+  <div class="col-8">
+    <% if @user.microposts.any? %>
+        <h4>Microposts (<%= @user.microposts.count %>)</h4>
+        <ol class="microposts">
+          <%= render @microposts %>
+        </ol>
+        <%= will_paginate @microposts %>
+    <% end %>
+  </div>
 </div>
 
 <p> account oppened on <i><%= @user.created_at %></i>
